@@ -1,0 +1,161 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.auth-wrapper {
+    min-height: calc(100vh - 64px);
+    @include flex-center;
+    background: radial-gradient(circle at center, $secondary-bg 0%, $background-color 100%);
+    padding: 2rem;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 440px;
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.auth-card {
+    @include card;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 2.5rem 3rem;
+    box-shadow: $shadow-xl;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    .auth-header {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: $primary-dark;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .auth-subtitle {
+            color: $text-secondary;
+            font-size: 0.95rem;
+        }
+    }
+
+    .error-message {
+        background: #fee2e2;
+        color: #b91c1c;
+        padding: 0.75rem 1rem;
+        border-radius: $radius-md;
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #fca5a5;
+        text-align: center;
+        font-weight: 500;
+    }
+}
+
+.auth-form {
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: $text-color;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            .input-icon {
+                position: absolute;
+                left: 1rem;
+                color: $text-light;
+                transition: color 0.2s;
+            }
+
+            input {
+                width: 100%;
+                padding: 0.75rem 1rem 0.75rem 2.8rem;
+                border: 1px solid $border-color;
+                border-radius: $radius-md;
+                font-size: 0.95rem;
+                font-family: $font-primary;
+                color: $text-color;
+                background: $surface-color;
+                transition: all 0.2s;
+
+                &::placeholder {
+                    color: $text-light;
+                }
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary-light;
+                    box-shadow: 0 0 0 4px rgba($primary-light, 0.1);
+
+                    +.input-icon,
+                    ~.input-icon {
+                        color: $primary-light;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn-primary {
+        @include btn($primary-color);
+        width: 100%;
+        padding: 0.85rem;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        border-radius: $radius-md;
+        box-shadow: 0 4px 14px 0 rgba($primary-color, 0.25);
+
+        &:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba($primary-color, 0.23);
+        }
+    }
+}
+
+.auth-toggle {
+    text-align: center;
+    margin-top: 2rem;
+
+    p {
+        color: $text-secondary;
+        font-size: 0.9rem;
+    }
+
+    button {
+        background: none;
+        border: none;
+        color: $primary-light;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+            color: $primary-color;
+            text-decoration: underline;
+        }
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

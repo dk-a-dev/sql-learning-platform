@@ -1,0 +1,125 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.results-panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    background: $surface-color;
+
+    &.loading,
+    &.empty {
+        @include flex-center;
+        color: $text-light;
+        height: 100%;
+        color: $text-secondary;
+        font-weight: 500;
+        gap: 0.5rem;
+    }
+
+    .spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid color.adjust($text-light, $alpha: -0.5);
+        border-top-color: $primary-light;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    &.error {
+        color: $error-color;
+        padding: 1rem;
+        background: #fee2e2;
+        border-left: 4px solid $error-color;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+    }
+
+    .result-banner {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        font-size: 0.88rem;
+        border-radius: $radius-sm;
+
+        &--success {
+            background: #f1f5f9;
+            color: $text-color;
+            border: 1px solid $border-color;
+        }
+
+        &--correct {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        &--incorrect {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+    }
+
+    .table-container {
+        flex: 1;
+        overflow: auto;
+        border: 1px solid $border-color;
+        border-radius: $radius-md;
+        background: white;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+
+            th,
+            td {
+                padding: 0.6rem 1rem;
+                border-bottom: 1px solid $border-color;
+                text-align: left;
+                white-space: nowrap;
+            }
+
+            th {
+                background: $secondary-bg;
+                color: $text-secondary;
+                font-weight: 600;
+                position: sticky;
+                top: 0;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                border-bottom: 2px solid $border-color;
+                z-index: 10;
+            }
+
+            tr {
+                transition: background 0.15s;
+
+                &:hover {
+                    background: color.adjust($secondary-bg, $lightness: 1%);
+                }
+            }
+
+            td {
+                color: $text-color;
+                font-family: $font-code;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
