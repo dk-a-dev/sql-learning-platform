@@ -17,7 +17,7 @@ const attemptSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['success', 'error'],
+        enum: ['success', 'error', 'correct', 'incorrect'],
         required: true,
     },
     createdAt: {
