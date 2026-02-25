@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores';
 import { Mail, Lock, LogIn, UserPlus } from 'lucide-react';
-import './Auth.scss';
+import '../../styles/pages/auth/Auth.scss';
 
 const Login = () => {
     const navigate = useNavigate();

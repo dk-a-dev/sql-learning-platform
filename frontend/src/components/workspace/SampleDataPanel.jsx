@@ -1,5 +1,5 @@
 import React from 'react';
-import './SampleDataPanel.scss';
+import '../../styles/components/workspace/SampleDataPanel.scss';
 
 const SampleDataPanel = ({ schema }) => {
     if (!schema) return <div className="panel empty">No sample data available.</div>;

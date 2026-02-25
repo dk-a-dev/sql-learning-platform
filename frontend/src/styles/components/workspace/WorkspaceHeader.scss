@@ -1,0 +1,157 @@
+@use 'sass:color';
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+.workspace-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: $surface-color;
+    border-bottom: 1px solid $border-color;
+    height: auto;
+    min-height: 60px;
+    flex-shrink: 0;
+    box-shadow: $shadow-sm;
+    z-index: 10;
+    gap: 0.75rem;
+
+    @include respond-to(tablet) {
+        padding: 0.75rem 1.5rem;
+        flex-wrap: nowrap;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        flex: 1 1 100%;
+        justify-content: space-between;
+
+        @include respond-to(tablet) {
+            flex: 0 1 auto;
+            justify-content: flex-start;
+            gap: 1rem;
+        }
+
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: none;
+            border: none;
+            color: $text-secondary;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: $radius-sm;
+            white-space: nowrap;
+
+            span {
+                display: none;
+
+                @include respond-to(tablet) {
+                    display: inline;
+                }
+            }
+
+            &:hover {
+                color: $text-color;
+                background: $background-color;
+            }
+        }
+
+        .vertical-divider {
+            width: 1px;
+            height: 20px;
+            background: $border-color;
+            display: none;
+
+            @include respond-to(tablet) {
+                display: block;
+            }
+        }
+
+        .assignment-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+
+            h2 {
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: $text-color;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 140px;
+
+                @include respond-to(tablet) {
+                    font-size: 1.05rem;
+                    max-width: 300px;
+                }
+            }
+        }
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex: 1 1 100%;
+        justify-content: space-between;
+
+        @include respond-to(tablet) {
+            flex: 0 1 auto;
+            gap: 0.75rem;
+            justify-content: flex-end;
+        }
+
+        .btn-action {
+            flex: 1;
+            justify-content: center;
+            @include btn($surface-color, $text-color);
+            border: 1px solid $border-color;
+            color: $text-color;
+            padding: 0.4rem 0.6rem;
+            font-size: 0.8rem;
+
+            @include respond-to(tablet) {
+                flex: 0 1 auto;
+            }
+
+            span {
+                display: inline;
+
+                @include respond-to(tablet) {
+                    display: inline;
+                }
+            }
+
+            &:hover:not(:disabled) {
+                background: $background-color;
+                border-color: color.adjust($border-color, $lightness: -10%);
+                color: $primary-dark;
+            }
+        }
+
+        .btn-run {
+            color: $text-color;
+        }
+
+        .btn-submit {
+            background: $success-color;
+            border-color: $success-color;
+            color: white;
+
+            &:hover:not(:disabled) {
+                background: color.adjust($success-color, $lightness: -5%);
+                color: white;
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 @use 'sass:color';
-@use '../../styles/variables' as *;
+@use '../../variables' as *;
 
 .question-panel {
     animation: fadeIn 0.3s ease;

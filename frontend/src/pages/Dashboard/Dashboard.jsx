@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAssignmentStore, useAuthStore } from '../../stores';
 import { attemptsApi } from '../../api';
-import { Terminal, CheckCircle, RotateCcw, PlayCircle, BarChart, Code2, DatabaseZap } from 'lucide-react';
-import './Dashboard.scss';
+import { CheckCircle, RotateCcw, PlayCircle } from 'lucide-react';
+import DashboardCard from '../../components/dashboard/DashboardCard';
+import '../../styles/pages/dashboard/Dashboard.scss';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -66,39 +67,14 @@ const Dashboard = () => {
                     {assignments.length === 0 ? (
                         <div className="empty-state">No assignments available. Please seed the database.</div>
                     ) : (
-                        assignments.map((assignment) => {
-                            const status = getCardStatus(assignment._id);
-                            return (
-                                <div
-                                    key={assignment._id}
-                                    className={`dashboard-card dashboard-card--${assignment.difficulty.toLowerCase()}`}
-                                    onClick={() => navigate(`/workspace/${assignment._id}`)}
-                                >
-                                    <div className="card-top">
-                                        <div className={`difficulty-badge difficulty-badge--${assignment.difficulty.toLowerCase()}`}>
-                                            {assignment.difficulty}
-                                        </div>
-                                        {status.badge !== 'badge-new' && (
-                                            <div className={`status-icon ${status.badge}`}>
-                                                {status.icon}
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    <h3>{assignment.title}</h3>
-                                    <p>{assignment.description}</p>
-
-                                    <div className="card-footer">
-                                        <div className="card-schema-info">
-                                            <Terminal size={14} /> SQL SELECT
-                                        </div>
-                                        <button className={`action-btn ${status.className}`}>
-                                            {status.label}
-                                        </button>
-                                    </div>
-                                </div>
-                            );
-                        })
+                        assignments.map((assignment) => (
+                            <DashboardCard
+                                key={assignment._id}
+                                assignment={assignment}
+                                status={getCardStatus(assignment._id)}
+                                onClick={() => navigate(`/workspace/${assignment._id}`)}
+                            />
+                        ))
                     )}
                 </div>
             </section>

@@ -1,0 +1,143 @@
+@use 'sass:color';
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+.dashboard-page {
+    background: $background-color;
+    min-height: 100%;
+    padding-bottom: 4rem;
+}
+
+.hero-section {
+    background: $surface-color;
+    padding: 5rem 2rem;
+    border-bottom: 1px solid $border-color;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: $primary-gradient;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .hero-badge {
+            display: inline-block;
+            background: color.adjust($primary-light, $lightness: 35%);
+            color: $primary-light;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid color.adjust($primary-light, $lightness: 25%);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            color: $primary-dark;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+
+            @include respond-to(tablet) {
+                font-size: 3.5rem;
+            }
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: $text-secondary;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+
+            @include respond-to(tablet) {
+                font-size: 1.25rem;
+            }
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+
+            @include respond-to(tablet) {
+                gap: 3rem;
+            }
+
+            .stat {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: $text-color;
+                font-weight: 500;
+                font-size: 0.95rem;
+
+                .stat-icon {
+                    color: $primary-light;
+                }
+            }
+        }
+    }
+}
+
+.challenges-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem;
+
+    .section-header {
+        margin-bottom: 2.5rem;
+
+        h2 {
+            font-size: 1.75rem;
+            color: $primary-dark;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            color: $text-secondary;
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+    }
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+
+        @include respond-to(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to(laptop) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+
+
+html,
+body,
+#root,
+.app {
+    height: 100%;
+}

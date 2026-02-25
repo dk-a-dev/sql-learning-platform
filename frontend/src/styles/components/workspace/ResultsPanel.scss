@@ -1,6 +1,6 @@
 @use 'sass:color';
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use '../../variables' as *;
+@use '../../mixins' as *;
 
 .results-panel {
     height: 100%;

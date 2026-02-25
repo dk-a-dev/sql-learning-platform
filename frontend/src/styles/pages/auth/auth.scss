@@ -1,6 +1,6 @@
 @use 'sass:color';
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use '../../variables' as *;
+@use '../../mixins' as *;
 
 .auth-wrapper {
     min-height: calc(100vh - 64px);

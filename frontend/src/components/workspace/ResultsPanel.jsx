@@ -1,6 +1,6 @@
 import React from 'react';
 import { AlertCircle, CheckCircle2, PlayCircle, XCircle } from 'lucide-react';
-import './ResultsPanel.scss';
+import '../../styles/components/workspace/ResultsPanel.scss';
 
 const ResultsPanel = ({ results, error, loading }) => {
     if (loading) return (

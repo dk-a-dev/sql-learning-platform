@@ -1,5 +1,4 @@
-import React from 'react';
-import './QuestionPanel.scss';
+import '../../styles/components/workspace/QuestionPanel.scss';
 
 const QuestionPanel = ({ assignment }) => {
     if (!assignment) return <div className="panel empty">Loading assignment...</div>;
