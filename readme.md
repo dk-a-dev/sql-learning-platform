@@ -2,7 +2,8 @@
 
 A web-based SQL learning platform where users practice SQL by solving assignments against a live PostgreSQL sandbox. Features query validation, submission tracking, and AI-powered hints via Google Gemini.
 
-**Live Repo:** [github.com/dk-a-dev/sql-learning-platform](https://github.com/dk-a-dev/sql-learning-platform)
+**Live Repo:** [github.com/dk-a-dev/sql-learning-platform](https://github.com/dk-a-dev/sql-learning-platform)<br>
+**Demo:** [yt demo](https://youtu.be/w95K-NEuiM4)
 
 ## Tech Stack
 
