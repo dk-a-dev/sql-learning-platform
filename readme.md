@@ -16,10 +16,19 @@ A web-based SQL learning platform where users practice SQL by solving assignment
 
 ## Architecture
 
-Full architecture diagram available on Excalidraw:
-[View Architecture Diagram](https://excalidraw.com/#json=saFUQVYK7qLzm_LDWNQfl,lbEcMWyDDA2dk56Yuxi63w)
+Full architecture:
 
-The platform uses a three-tier architecture. The React frontend talks to an Express REST API. MongoDB stores users, assignments (with expected solutions), and attempt history. PostgreSQL serves as a sandboxed execution environment for user-submitted SQL queries. Query correctness is validated by comparing user output against the expected solution's output.
+### Plan
+![Plan](screenshots/plan.png)
+
+### DFD
+![DFD](screenshots/dfd.png)
+
+### Sequence Diagram
+![Sequence Diagram](screenshots/sequence.png)
+
+### High Level Design
+![High Level Design](screenshots/hld.png)
 
 ## Getting Started
 
@@ -91,18 +100,6 @@ frontend/
 ```
 
 ## Screenshots
-
-### Plan
-![Plan](screenshots/plan.png)
-
-### DFD
-![DFD](screenshots/dfd.png)
-
-### Sequence Diagram
-![Sequence Diagram](screenshots/sequence.png)
-
-### High Level Design
-![High Level Design](screenshots/hld.png)
 
 ### Authentication
 ![Auth](screenshots/auth.png)
